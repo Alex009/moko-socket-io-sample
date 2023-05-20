@@ -5,7 +5,15 @@ struct ContentView: View {
 	let greeting = Greeting()
 
 	var body: some View {
-        Text(greeting.greet())
+        VStack {
+            Button("Connect") {
+                greeting.connect()
+            }
+            
+            Button("Hello") {
+                greeting.hello()
+            }
+        }
 	}
 }
 

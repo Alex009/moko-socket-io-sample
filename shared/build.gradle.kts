@@ -28,12 +28,23 @@ kotlin {
         framework {
             baseName = "shared"
         }
+
+        // 11.0 minimal supported
+        ios.deploymentTarget = "11.0"
+
+        // add native dependency
+        pod(name = "mokoSocketIo") {
+            source = git(url = "https://github.com/icerockdev/moko-socket-io.git") {
+                tag = "release/0.4.0"
+            }
+        }
     }
     
     sourceSets {
         val commonMain by getting {
             dependencies {
                 //put your multiplatform dependencies here
+                api("dev.icerock.moko:socket-io:0.4.0")
             }
         }
         val commonTest by getting {
